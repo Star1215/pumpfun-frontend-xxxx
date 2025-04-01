@@ -10,6 +10,7 @@ import { getFollowings, setFollow, setUnFollow } from '@/api/user'
 import { useWallet } from "@solana/wallet-adapter-react";
 import { findTokens, getKing } from '@/api/token'
 import { getUserId } from '@/utils'
+import { isMainNet } from "@/engine/config"
 
 const sortType = [
   { id: 1, name: 'sort: bump order' },
@@ -26,7 +27,7 @@ const orderType = [
 
 export default function BoardPage() {
   const wallet = useWallet()
-
+  console.log('debug is mainnet::', isMainNet)
   const tokenDiv = useRef(null)
   const [currentTab, setCurrentTab] = useState('Terminal')
   const searchTokenName = useRef('')

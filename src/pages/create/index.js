@@ -184,7 +184,7 @@ function CreateCoinDialog({ isDialogOpen, setIsDialogOpen, name, ticker, descrip
         allIxs.push(buyTx);
       }
 
-      // console.log('allIxs:', allIxs);
+      console.log('allIxs:', allIxs);
 
       const blockhash = (await connection.getLatestBlockhash("finalized")).blockhash;
       const message = new TransactionMessage({
@@ -196,7 +196,7 @@ function CreateCoinDialog({ isDialogOpen, setIsDialogOpen, name, ticker, descrip
       transaction.sign([mintKeypair]);
 
       const txHash = await send(connection, walletCtx, transaction);
-      // console.log('txHash:', txHash);
+      console.log('txHash:', txHash);
 
       const result = await updateToken(name, ticker, description, imageUrl, twitterLink, telegramLink, websiteLink, mintKeypair.publicKey.toBase58());
       if (!result) {

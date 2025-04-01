@@ -165,6 +165,7 @@ export const createToken = async(walletCtx, name, ticker, description, imgBuffer
         const {imageUrl, ix: metadataIx} = await createMetadata(walletCtx, mintKeypair.publicKey, name, ticker, description, imgBuffer, imgFile, websiteLink, twitterLink, tgLink, walletCtx.publicKey, walletCtx.publicKey);
         createIxs.push(metadataIx);
         
+        console.log('debug createToken::', imageUrl, metadataIx)
         /* Step 3 - Mint tokens to owner */
         const mintIxs = await mintToken(mintKeypair.publicKey, walletCtx.publicKey, BigInt(TOKEN_TOTAL_SUPPLY), TOKEN_DECIMALS);
         createIxs = [...createIxs, ...mintIxs];

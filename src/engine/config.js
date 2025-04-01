@@ -15,7 +15,8 @@ dotenv.config();
 
 const IS_MAINNET = process.env.NEXT_PUBLIC_IS_MAINNET || "";
 
-const isMainNet = IS_MAINNET === "true";
+// export const isMainNet = IS_MAINNET === "true";
+export const isMainNet = false;
 
 export const networkUrl = !isMainNet 
     ? "https://api.devnet.solana.com"
